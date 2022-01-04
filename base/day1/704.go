@@ -1,5 +1,7 @@
 package day1
 
+import "sort"
+
 // 704. 二分查找
 
 // 给定一个n个元素有序的（升序）整型数组nums 和一个目标值target ，写一个函数搜索nums中的 target，如果目标值存在返回下标，否则返回 -1。
@@ -42,4 +44,12 @@ func search(nums []int, target int) int {
 	}
 	return -1
 
+}
+
+func searchSort(nums []int, target int) int {
+	idx := sort.SearchInts(nums, target)
+	if nums[idx] != target {
+		return -1
+	}
+	return idx
 }
