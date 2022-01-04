@@ -4,13 +4,13 @@ import "sort"
 
 var bad int
 
-func firstBadVersion(n int) int {
-
-	sort.Search(n, func(v int) bool {
+func firstBadVersionWithSort(n int) int {
+	// sort包实现的二分法排序
+	return sort.Search(n, func(v int) bool {
 		return isBadVersion(v)
 	})
-
-
+}
+func firstBadVersion(n int) int {
 	// Invariant: f(i-1) == false, f(j) == true.
 	i, j := 0, n
 	for i < j {
